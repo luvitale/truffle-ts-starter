@@ -1,7 +1,9 @@
 {
-  "name": "example-truffle-v5",
-  "private": true,
-  "version": "0.0.1",
+  "name": "truffle-ts-starter",
+  "private": false,
+  "description": "A Serverless JAMstack Todo App with Gatsby, Netlify, FaunaDB, GraphQL and TypeScript",
+  "version": "0.1.0",
+  "author": "Mian Muhammad Sharjeel Safdar <miansharjeelsafdar@gmail.com>",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -24,5 +26,21 @@
     "truffle": "^5.1.22",
     "typechain": "2.0.0",
     "typescript": "4.1.5"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "truffle",
+    "typescript",
+    "starter",
+    "ethereum",
+    "smart-contracts",
+    "solidity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SharjeelSafdar/truffle-ts-starter"
+  },
+  "bugs": {
+    "url": "https://github.com/SharjeelSafdar/truffle-ts-starter/issues"
   }
 }
