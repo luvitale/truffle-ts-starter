@@ -6,9 +6,12 @@
   "license": "MIT",
   "scripts": {
     "generate-types": "typechain --target=truffle-v5 'build/contracts/*.json'",
-    "postinstall": "truffle compile && yarn generate-types",
+    "postinstall": "yarn compile",
     "migrate": "tsc -p ./tsconfig.migrate.json --outDir ./migrations && truffle migrate",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "truffle test",
+    "compile": "truffle compile && yarn generate-types",
+    "build": "yarn compile"
   },
   "dependencies": {
     "@truffle/hdwallet-provider": "^1.5.0",
