@@ -4,6 +4,10 @@ const MNEMONIC = process.env.MNEMONIC;
 const INFURA_PROJECT_ID = process.env.INFURA_PROJECT_ID;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 
+const GAS = 3000000;
+const GASPRICE = 5;
+const SKIP_DRY_RUN = false;
+
 module.exports = {
   // Configure your compilers
   compilers: {
@@ -22,6 +26,16 @@ module.exports = {
       host: "127.0.0.1",
       port: 7545,
       network_id: "*", // Any network (default: none)
+    },
+    main: {
+      provider: () =>
+        new HDWalletProvider(
+          MNEMONIC,
+          `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`
+        ),
+      network_id: 1,
+      gas: GAS,
+      gasPrice: 1000000000 * GASPRICE
     },
     ropsten: {
       provider: () =>
@@ -71,6 +85,64 @@ module.exports = {
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true,
+    },
+    // Binance Smart Chain
+    bsc: {
+      provider: () => 
+        new HDWalletProvider(
+          MNEMONIC, 'https://bsc-dataseed.binance.org/'
+        ),
+      network_id: 56,
+      skipDryRun: SKIP_DRY_RUN
+    },
+    bsc_test: {
+      provider: () =>
+        new HDWalletProvider(
+          MNEMONIC, 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+        ),
+      network_id: 97,
+      skipDryRun: SKIP_DRY_RUN
+    },
+    // xDai
+    xdai: {
+      provider: () =>
+        new HDWalletProvider(
+          MNEMONIC, 'https://dai.poa.network'
+        ),
+      network_id: 100,
+      gas: GAS,
+      gasPrice: 1000000000 * GASPRICE,
+      skipDryRun: SKIP_DRY_RUN
+    },
+    // polygon (matic)
+    matic: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://rpc-mainnet.maticvigil.com/`),
+      network_id: 137,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    mumbai: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://rpc-mumbai.maticvigil.com/`),
+      network_id: 80001,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    // rsk
+    rsk: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://public-node.rsk.co`),
+      network_id: 30,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    rsk_test: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://public-node.testnet.rsk.co`),
+      network_id: 31,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
     },
   },
 
